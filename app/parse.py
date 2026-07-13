@@ -6,7 +6,6 @@ import requests
 from bs4 import BeautifulSoup
 
 
-
 @dataclass
 class Quote:
     text: str
@@ -45,7 +44,6 @@ def get_all_quotes() -> list[Quote]:
             next_button = page_soup.select_one(".next > a")
             page_url = BASE_URL + next_button["href"] if next_button else None
 
-            # be gentle to the website
             time.sleep(0.5)
 
     return all_quotes
